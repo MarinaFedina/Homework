@@ -1,3 +1,21 @@
+import project.src.masks
+
+
+def mask_account_card(card_type_number:str):
+    card_type = []
+    card_number = []
+    for symbol in card_type_number:
+        if symbol.isalpha():
+            card_type.append(symbol)
+        elif symbol.isdigit():
+            card_number.append(symbol)
+            if "".join(card_type) == "Счет":
+                masked_number = project.src.masks.get_mask_account("".join(card_number))
+            else:
+                masked_number = project.src.masks.get_mask_card_number("".join(card_number))
+    return f"{"".join(card_type)} {masked_number}"
+
+
 def get_date(date:str):
     clean_date = []
     for symbol in date:
@@ -9,4 +27,5 @@ def get_date(date:str):
     return f"{day}.{month}.{year}"
 
 
+print(mask_account_card("Maestro 1596837868705199"))
 print(get_date("2024-03-11T02:26:18.671407"))
