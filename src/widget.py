@@ -1,10 +1,9 @@
 import src.masks
 
 
-def mask_account_card(card_type_number:str):
+def mask_account_card(card_type_number: str) -> str:
     """Функция считывает тип номера - карта или счет, и маскирует номер в
-       соответствии с типом.
-       :return: str"""
+    соответствии с типом"""
     card_type = []
     card_number = []
     for symbol in card_type_number:
@@ -19,9 +18,8 @@ def mask_account_card(card_type_number:str):
     return f"{"".join(card_type)} {masked_number}"
 
 
-def get_date(date:str):
-    """Функция переделывает формат даты в стандартный
-    :return: str"""
+def get_date(date: str) -> str:
+    """Функция переделывает формат даты в стандартный"""
     clean_date = []
     for symbol in date:
         if symbol.isdigit():
