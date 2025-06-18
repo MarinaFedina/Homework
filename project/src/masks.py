@@ -17,4 +17,3 @@ def get_mask_account(account_number: str) -> str:
     last_numbers = "".join(account_number[-4:])
     masked_account = "**" + last_numbers
     return masked_account
-
