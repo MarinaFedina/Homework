@@ -15,6 +15,8 @@ def mask_account_card(card_type_number: str) -> str:
                 masked_number = src.masks.get_mask_account("".join(card_number))
             else:
                 masked_number = src.masks.get_mask_card_number("".join(card_number))
+        else:
+            return " "
     return f"{"".join(card_type)} {masked_number}"
 
 
