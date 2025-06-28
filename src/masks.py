@@ -17,7 +17,6 @@ def get_mask_card_number(number: str) -> str:
         return "-введите верный номер"
 
 
-
 def get_mask_account(account_number: str) -> str:
     """Функция маскирует номер банковского счёта
     :return: str"""
