@@ -6,14 +6,16 @@ from src.masks import get_mask_account
 #Тестирование правильности маскирования номера карты.
 def test_get_mask_card_number(card_num):
     assert get_mask_card_number(card_num) == "7000 79** **** 6361"
+    assert get_mask_card_number(" ") == "Введите номер"
+    assert get_mask_card_number("") == "Введите номер"
+    assert get_mask_card_number("asdfghjklzxcvbnm") == "Введите номер"
+    assert get_mask_card_number("162734") == "Введите номер"
 
-#Проверка работы функции на различных входных форматах номеров карт,
-# включая граничные случаи и нестандартные длины номеров.
-# Проверка, что функция корректно обрабатывает входные строки,
-# где отсутствует номер карты.
 
+#Тестирование правильности маскирования номера счёта.
 def test_get_mask_account(account_num):
     assert get_mask_account(account_num) == "**4305"
-#Тестирование правильности маскирования номера счета.
-#Проверка работы функции с различными форматами и длинами номеров счетов.
-#Проверка, что функция корректно обрабатывает входные данные, где номер счета меньше ожидаемой длины.
+    assert get_mask_account(" ") == "Введите номер"
+    assert get_mask_account("") == "Введите номер"
+    assert get_mask_account("lnjvjqyjvthzujdj") == "Введите номер"
+    assert get_mask_account("67564") == "Введите номер"

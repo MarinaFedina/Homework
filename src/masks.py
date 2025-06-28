@@ -7,23 +7,27 @@ def get_mask_card_number(number: str) -> str:
             continue
         else:
             masked_number.append(symbol)
+    if len(masked_number) == 16:
         masked_number[6:-4] = "******"
         masked_number.insert(4, " ")
         masked_number.insert(9, " ")
         masked_number.insert(14, " ")
-    user_msg = "Введите номер"
-    if len(masked_number) < 19:
-        print(user_msg)
-    else:
         return "".join(masked_number)
+    else:
+        return "Введите номер"
+
 
 
 def get_mask_account(account_number: str) -> str:
     """Функция маскирует номер банковского счёта
     :return: str"""
-    last_numbers = "".join(account_number[-4:])
-    masked_account = "**" + last_numbers
-    return masked_account
+    if len(account_number) == 20 and account_number.isdigit():
+        last_numbers = "".join(account_number[-4:])
+        masked_account = "**" + last_numbers
+        return masked_account
+    else:
+        return "Введите номер"
 
 
-print(get_mask_card_number(""))
+print(get_mask_card_number("1234567891234567"))
+print(get_mask_account("12345678912345678978"))
