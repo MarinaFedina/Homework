@@ -15,8 +15,10 @@ def mask_account_card(card_type_number: str) -> str:
                 masked_number = src.masks.get_mask_account("".join(card_number))
             else:
                 masked_number = src.masks.get_mask_card_number("".join(card_number))
-        else:
-            return " "
+    if len(card_type_number) < 21:
+        return "Неверный формат номера"
+    elif card_type == [] or card_number == []:
+        return "Неверный формат номера"
     return f"{"".join(card_type)} {masked_number}"
 
 
@@ -29,8 +31,12 @@ def get_date(date: str) -> str:
     year = "".join(clean_date[0:4])
     month = "".join(clean_date[4:6])
     day = "".join(clean_date[6:8])
-    return f"{day}.{month}.{year}"
+    if len(date) == 26:
+        return f"{day}.{month}.{year}"
+    else:
+        return "Введите дату в нужном формате"
 
 
-print(mask_account_card("Maestro 1596837868705199"))
+
+print(mask_account_card(" "))
 print(get_date("2024-03-11T02:26:18.671407"))

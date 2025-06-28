@@ -14,7 +14,7 @@ def get_mask_card_number(number: str) -> str:
         masked_number.insert(14, " ")
         return "".join(masked_number)
     else:
-        return "Введите номер"
+        return "-введите верный номер"
 
 
 
@@ -26,7 +26,7 @@ def get_mask_account(account_number: str) -> str:
         masked_account = "**" + last_numbers
         return masked_account
     else:
-        return "Введите номер"
+        return "-введите верный номер"
 
 
 print(get_mask_card_number("1234567891234567"))
